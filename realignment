@@ -24,3 +24,39 @@ for prefix in `cat sample.txt`; do
     bowtie2 -x /workdir/nc499/reference/danRer11.nonalt.bowtie2idx -U $fqfile --phred33 --reorder -S $realigned
 done
 
+# only allow for unique mapping reads; remove XS tag from SAM files
+
+for sample in `cat *realigned.sam`; do grep -E "@|NM:" $sample | grep -v "XS:" > uniq_$sample; done
+
+
+#unaligned file/dictionary was generated before
+#sort the reads
+
+#!/usr/bin/env bash
+# Specify filenames
+    bamfile="${prefix}.bam"
+    fqfile="${prefix}.fastq"
+    realigned="${prefix}.realigned.sam"
+    sorted=$"${prefix}.realigned.sorted.bam"
+    unaligned="${prefix}.unaligned.bam"
+    barcoded="${prefix}.realigned.barcoded.bam"
+    
+    
+    echo sorting $prefix
+    #Sort sam to bam
+    java -Xmx4g -jar /workdir/nc499/raw/picard/picard.jar SortSam \
+        I= $realigned \
+        O= $sorted \
+        SO=queryname
+
+    echo merging $prefix
+    # Merge the new bowetie2-alignment bam file with the unaligned bam file.
+    java -Xmx4g -jar /workdir/nc499/raw/picard/picard.jar MergeBamAlignment \
+        REFERENCE_SEQUENCE= danRer11.nonalt.fasta \
+        UNMAPPED_BAM=$unaligned \
+        ALIGNED_BAM=$sorted \
+        OUTPUT=$barcoded \
+        INCLUDE_SECONDARY_ALIGNMENTS=false \
+        PAIRED_RUN=false \
+        VALIDATION_STRINGENCY=SILENT
+done
