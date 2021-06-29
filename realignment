@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#/workdir/nc499/snRNA/schier/dr11/
+
+#export JAVA_HOME=/usr/local/jdk1.8.0_121
+#export PATH=$JAVA_HOME/bin:$PATH
+
+for prefix in `cat sample.txt`; do
+
+    # Specify filenames
+    bamfile="${prefix}.bam"
+    fqfile="${prefix}.fastq"
+    realigned="${prefix}.realigned.sam"
+
+    echo realigning $prefix
+
+    # Extract reads from aligned bam file.
+    java -Xmx4g -jar /workdir/nc499/tools/picard/picard.jar SamToFastq \
+        INPUT=$bamfile \
+        FASTQ=$fqfile
+
+    echo mapping $prefix
+
+    # Map reads using bowtie2. First build an index, then map the reads.
+    bowtie2 -x /workdir/nc499/reference/danRer11.nonalt.bowtie2idx -U $fqfile --phred33 --reorder -S $realigned
+done
+
