@@ -1,0 +1,28 @@
+#calling peaks using MAC2
+export PYTHONPATH=/programs/macs2-2.2.7.1/lib64/python3.6/site-packages
+export PATH=/programs/macs2-2.2.7.1/bin:$PATH
+
+macs2 callpeak \
+-t TArep1_Aligned.out.bam TArep2_Aligned.out.bam \
+-c TAinput_Aligned.out.bam \
+-f BAM \
+-p 0.01 \
+-n Ta \
+-g 1.5e9 &
+
+
+macs2 callpeak \
+-t Tbx16rep1_Aligned.out.bam Tbx16rep2_Aligned.out.bam \
+-c Tbx16input_Aligned.out.bam \
+-f BAM \
+-p 0.01 \
+-n Tbx16 \
+-g 1.5e9 &
+
+macs2 callpeak \
+-t nanog_Aligned.out.bam \
+-c nanoginput_Aligned.out.bam \
+-f BAM \
+-p 0.01 \
+-n nanog \
+-g 1.5e9 &
