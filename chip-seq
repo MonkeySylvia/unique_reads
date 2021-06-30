@@ -1,0 +1,102 @@
+#using star alignment to see if I can get higher alignment rate
+#create a star genome index
+
+/programs/STAR-2.7.5a/bin/Linux_x86_64/STAR \
+--runMode genomeGenerate \
+--runThreadN 10 \
+--genomeDir /workdir/nc499/reference/STAR \
+--genomeFastaFiles /workdir/nc499/reference/danRer11.nonalt.fa
+
+#re-mapped TA_rep1
+#only unique-mapped reads; higher than hisat2 (58% vs 43% for unique reads)
+/programs/STAR-2.7.5a/bin/Linux_x86_64/STAR \
+--runMode alignReads \
+--genomeDir /workdir/nc499/reference/STAR \
+--readFilesIn /workdir/nc499/chipseq/SRR3932466_1_paired.fastq /workdir/nc499/chipseq/SRR3932466_2_paired.fastq \
+--runThreadN 10 \
+--outSAMtype BAM Unsorted \
+--outFilterMultimapNmax 1 \
+--alignIntronMax 500000 \
+--alignMatesGapMax 500000 \
+--outFileNamePrefix /workdir/nc499/chipseq/TArep1_
+
+#TA_rep2, input- SRR3932467, SRR3932461
+#Tbx16 input SRR5376291, rep1 SRR3932469, rep2 SRR3932468
+#nanog input SRR392592, nanog SRR392589 (4.5 hpf)
+
+/programs/STAR-2.7.5a/bin/Linux_x86_64/STAR \
+--runMode alignReads \
+--genomeDir /workdir/nc499/reference/STAR \
+--readFilesIn /workdir/nc499/chipseq/SRR3932467_1_paired.fastq /workdir/nc499/chipseq/SRR3932467_2_paired.fastq \
+--runThreadN 10 \
+--outSAMtype BAM Unsorted \
+--outFilterMultimapNmax 1 \
+--alignIntronMax 500000 \
+--alignMatesGapMax 500000 \
+--outFileNamePrefix /workdir/nc499/chipseq/star_aln/TArep2_
+
+/programs/STAR-2.7.5a/bin/Linux_x86_64/STAR \
+--runMode alignReads \
+--genomeDir /workdir/nc499/reference/STAR \
+--readFilesIn /workdir/nc499/chipseq/SRR3932461_1_paired.fastq /workdir/nc499/chipseq/SRR3932461_2_paired.fastq \
+--runThreadN 10 \
+--outSAMtype BAM Unsorted \
+--outFilterMultimapNmax 1 \
+--alignIntronMax 500000 \
+--alignMatesGapMax 500000 \
+--outFileNamePrefix /workdir/nc499/chipseq/star_aln/TAinput_
+
+/programs/STAR-2.7.5a/bin/Linux_x86_64/STAR \
+--runMode alignReads \
+--genomeDir /workdir/nc499/reference/STAR \
+--readFilesIn /workdir/nc499/chipseq/SRR5376291_clean.fastq \
+--runThreadN 10 \
+--outSAMtype BAM Unsorted \
+--outFilterMultimapNmax 1 \
+--alignIntronMax 500000 \
+--alignMatesGapMax 500000 \
+--outFileNamePrefix /workdir/nc499/chipseq/star_aln/Tbx16input_
+
+/programs/STAR-2.7.5a/bin/Linux_x86_64/STAR \
+--runMode alignReads \
+--genomeDir /workdir/nc499/reference/STAR \
+--readFilesIn /workdir/nc499/chipseq/SRR3932469_clean.fastq \
+--runThreadN 10 \
+--outSAMtype BAM Unsorted \
+--outFilterMultimapNmax 1 \
+--alignIntronMax 500000 \
+--alignMatesGapMax 500000 \
+--outFileNamePrefix /workdir/nc499/chipseq/star_aln/Tbx16rep1_
+
+/programs/STAR-2.7.5a/bin/Linux_x86_64/STAR \
+--runMode alignReads \
+--genomeDir /workdir/nc499/reference/STAR \
+--readFilesIn /workdir/nc499/chipseq/SRR3932468_clean.fastq \
+--runThreadN 10 \
+--outSAMtype BAM Unsorted \
+--outFilterMultimapNmax 1 \
+--alignIntronMax 500000 \
+--alignMatesGapMax 500000 \
+--outFileNamePrefix /workdir/nc499/chipseq/star_aln/Tbx16rep2_
+
+/programs/STAR-2.7.5a/bin/Linux_x86_64/STAR \
+--runMode alignReads \
+--genomeDir /workdir/nc499/reference/STAR \
+--readFilesIn /workdir/nc499/chipseq/SRR392592_clean.fastq \
+--runThreadN 10 \
+--outSAMtype BAM Unsorted \
+--outFilterMultimapNmax 1 \
+--alignIntronMax 500000 \
+--alignMatesGapMax 500000 \
+--outFileNamePrefix /workdir/nc499/chipseq/star_aln/nanoginput_
+
+/programs/STAR-2.7.5a/bin/Linux_x86_64/STAR \
+--runMode alignReads \
+--genomeDir /workdir/nc499/reference/STAR \
+--readFilesIn /workdir/nc499/chipseq/SRR392589_clean.fastq \
+--runThreadN 10 \
+--outSAMtype BAM Unsorted \
+--outFilterMultimapNmax 1 \
+--alignIntronMax 500000 \
+--alignMatesGapMax 500000 \
+--outFileNamePrefix /workdir/nc499/chipseq/star_aln/nanog_
