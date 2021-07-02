@@ -33,10 +33,11 @@ for sample in `cat *realigned.sam`; do grep -E "@|NM:" $sample | grep -v "XS:" >
 #sort the reads
 
 #!/usr/bin/env bash
+
+for prefix in `cat sample.txt`; do
+
 # Specify filenames
-    bamfile="${prefix}.bam"
-    fqfile="${prefix}.fastq"
-    realigned="${prefix}.realigned.sam"
+    realigned="uniq_${prefix}.realigned.sam"
     sorted=$"${prefix}.realigned.sorted.bam"
     unaligned="${prefix}.unaligned.bam"
     barcoded="${prefix}.realigned.barcoded.bam"
@@ -44,16 +45,16 @@ for sample in `cat *realigned.sam`; do grep -E "@|NM:" $sample | grep -v "XS:" >
     
     echo sorting $prefix
     #Sort sam to bam
-    java -Xmx4g -jar /workdir/nc499/raw/picard/picard.jar SortSam \
+    java -Xmx4g -jar //workdir/nc499/tools/picard/picard.jar SortSam \
         I= $realigned \
         O= $sorted \
         SO=queryname
 
     echo merging $prefix
     # Merge the new bowetie2-alignment bam file with the unaligned bam file.
-    java -Xmx4g -jar /workdir/nc499/raw/picard/picard.jar MergeBamAlignment \
-        REFERENCE_SEQUENCE= danRer11.nonalt.fasta \
-        UNMAPPED_BAM=$unaligned \
+    java -Xmx4g -jar /workdir/nc499/tools/picard/picard.jar MergeBamAlignment \
+        REFERENCE_SEQUENCE= ../danRer11.nonalt.fasta \
+        UNMAPPED_BAM=../$unaligned \
         ALIGNED_BAM=$sorted \
         OUTPUT=$barcoded \
         INCLUDE_SECONDARY_ALIGNMENTS=false \
