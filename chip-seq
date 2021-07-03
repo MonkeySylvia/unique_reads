@@ -31,9 +31,9 @@
 --runThreadN 10 \
 --outSAMtype BAM Unsorted \
 --outFilterMultimapNmax 1 \
---alignIntronMax 500000 \
---alignMatesGapMax 500000 \
---outFileNamePrefix /workdir/nc499/chipseq/star_aln/TArep2_
+--alignIntronMax 1 \
+--alignEndsType EndToEnd \
+--outFileNamePrefix /workdir/nc499/chipseq/star_aln/TArep2_re_
 
 /programs/STAR-2.7.5a/bin/Linux_x86_64/STAR \
 --runMode alignReads \
@@ -42,9 +42,9 @@
 --runThreadN 10 \
 --outSAMtype BAM Unsorted \
 --outFilterMultimapNmax 1 \
---alignIntronMax 500000 \
---alignMatesGapMax 500000 \
---outFileNamePrefix /workdir/nc499/chipseq/star_aln/TAinput_
+--alignIntronMax 1 \
+--alignEndsType EndToEnd \
+--outFileNamePrefix /workdir/nc499/chipseq/star_aln/TAinput_re_
 
 /programs/STAR-2.7.5a/bin/Linux_x86_64/STAR \
 --runMode alignReads \
