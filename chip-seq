@@ -18,7 +18,7 @@
 --outFilterMultimapNmax 1 \
 --alignIntronMax 1 \
 --alignEndsType EndToEnd \
---outFileNamePrefix /workdir/nc499/chipseq/TArep1_re_
+--outFileNamePrefix /workdir/nc499/chipseq/star_aln/TArep1_
 
 #TA_rep2, input- SRR3932467, SRR3932461
 #Tbx16 input SRR5376291, rep1 SRR3932469, rep2 SRR3932468
@@ -33,7 +33,7 @@
 --outFilterMultimapNmax 1 \
 --alignIntronMax 1 \
 --alignEndsType EndToEnd \
---outFileNamePrefix /workdir/nc499/chipseq/star_aln/TArep2_re_
+--outFileNamePrefix /workdir/nc499/chipseq/star_aln/TArep2_
 
 /programs/STAR-2.7.5a/bin/Linux_x86_64/STAR \
 --runMode alignReads \
@@ -44,7 +44,7 @@
 --outFilterMultimapNmax 1 \
 --alignIntronMax 1 \
 --alignEndsType EndToEnd \
---outFileNamePrefix /workdir/nc499/chipseq/star_aln/TAinput_re_
+--outFileNamePrefix /workdir/nc499/chipseq/star_aln/TAinput_
 
 /programs/STAR-2.7.5a/bin/Linux_x86_64/STAR \
 --runMode alignReads \
