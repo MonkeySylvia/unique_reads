@@ -5,7 +5,7 @@ export PATH=/programs/macs2-2.2.7.1/bin:$PATH
 macs2 callpeak \
 -t TArep1_Aligned.out.bam TArep2_Aligned.out.bam \
 -c TAinput_Aligned.out.bam \
--f BAM \
+-f BAMPE \
 -p 0.01 \
 -n Ta \
 -g 1.5e9 &
@@ -26,3 +26,9 @@ macs2 callpeak \
 -p 0.01 \
 -n nanog \
 -g 1.5e9 &
+
+#find the loci for my 42 TE candidates from scRNA-seq
+#/workdir/nc499/quirze
+grep -w -f 42_TE.txt danRer11_TE_defrag_Rt_clust.gtf > 42_TE_defrag_Rt_clust.gtf
+
+#intersect the peak with narrowpeak
