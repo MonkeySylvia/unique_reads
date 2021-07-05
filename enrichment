@@ -20,4 +20,18 @@ mv danRer11.nonalt.fa.out danRer11.nonalt.rep.fa.bed
     -f ./Ta_peaks.narrowPeak.bed \
     -q ./danRer11.nonalt.rep.fa.bed \
     -r /local/workdir/nc499/chipseq/GRCz11.chrom.txt \
-    -s "rm"
+    -s rm
+    
+cut -f 1-6 Tbx16_peaks.narrowPeak > Tbx16_peaks.narrowPeak.bed
+/local/workdir/nc499/chipseq/star_aln/TEanalysis/TE-analysis_Shuffle_bed.pl \
+    -f ./Tbx16_peaks.narrowPeak \
+    -q ./danRer11.nonalt.fa.out \
+    -r /local/workdir/nc499/chipseq/GRCz11.chrom.txt \
+    -s rm
+    
+cut -f 1-6 nanog_peaks.narrowPeak > nanog_peaks.narrowPeak.bed
+/local/workdir/nc499/chipseq/star_aln/TEanalysis/TE-analysis_Shuffle_bed.pl \
+    -f ./nanog_peaks.narrowPeak.bed \
+    -q ./danRer11.nonalt.fa.out \
+    -r /local/workdir/nc499/chipseq/GRCz11.chrom.txt \
+    -s rm
