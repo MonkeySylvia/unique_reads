@@ -6,17 +6,18 @@ convert2bed --input=gtf </workdir/nc499/quirze/42_TE_defrag_Rt_clust.gtf> /workd
 
 cut -f 1-6 Ta_peaks.narrowPeak > Ta_peaks.narrowPeak.bed
 
-#te shuffle
-#no vlaue in the output file
-perl ./TEanalysis/TE-analysis_Shuffle_bed.pl 
--f Ta_peaks.narrowPeak.bed  
--q /workdir/nc499/quirze/42_TE_defrag_Rt_clust.bed 
--s tss -r ../chromInfo.txt 
--a ../Danio_rerio.GRCz11.98.chr.bed
+cp /local/workdir/jnw72/Projects/drerio-tes/data/repeatmasker-out/danRer11.nonalt.fa.out ./
+mv danRer11.nonalt.fa.out danRer11.nonalt.rep.fa.bed
 
-#try random position-not working
-perl ./TEanalysis/TE-analysis_Shuffle_bed.pl 
--f Ta_peaks.narrowPeak.bed  
--q /workdir/nc499/quirze/42_TE_defrag_Rt_clust.bed 
--s bed 
--r ../chromInfo.txt -e /workdir/nc499/reference/danRer11.nonalt.fa -d &
+
+#te shuffle
+#jons script shuffle_peaks.sh
+#shuffle all TEs
+
+#!/usr/bin/env bash
+
+/local/workdir/nc499/chipseq/star_aln/TEanalysis/TE-analysis_Shuffle_bed.pl \
+    -f ./Ta_peaks.narrowPeak.bed \
+    -q ./danRer11.nonalt.rep.fa.bed \
+    -r /local/workdir/nc499/chipseq/chromInfo.txt \
+    -s "rm"
