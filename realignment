@@ -28,6 +28,6 @@ done
 
 # only allow for unique mapping reads; remove XS tag from SAM files
 
-for sample in `cat *realigned.sam`; do grep -E "@|NM:" $sample | grep -v "XS:" > uniq_$sample; done
+for sample in `ls *.XS.bam`; do samtools view $sample | grep -E "@|NM:" | grep -v "XS:" > uniq_$sample; done
 
 
