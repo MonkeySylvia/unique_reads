@@ -1,0 +1,18 @@
+#align reads to refernce genomes
+
+#!/usr/bin/env bash
+
+for prefix in `cat sample.txt`; do
+
+/programs/STAR-2.7.5a/bin/Linux_x86_64/STAR \
+  --runMode alignReads \
+  --genomeDir /workdir/nc499/reference/STAR \
+  --readFilesIn ./${prefix}_1.fastq.gz ./${prefix}_2.fastq.gz \
+  --readFilesCommand gunzip -c \
+  --runThreadN 10 \
+  --outSAMtype BAM Unsorted \
+  --outFilterMultimapNmax 1 \
+  --alignIntronMax 1000000 \
+  --outFileNamePrefix ./${prefix}_
+
+done
