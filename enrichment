@@ -1,0 +1,22 @@
+#git clone https://github.com/4ureliek/TEanalysis.git
+#use TE-analysis_Shuffle_bed.pl
+#convert to bed file
+
+convert2bed --input=gtf </workdir/nc499/quirze/42_TE_defrag_Rt_clust.gtf> /workdir/nc499/quirze/42_TE_defrag_Rt_clust.bed
+
+cut -f 1-6 Ta_peaks.narrowPeak > Ta_peaks.narrowPeak.bed
+
+#te shuffle
+#no vlaue in the output file
+perl ./TEanalysis/TE-analysis_Shuffle_bed.pl 
+-f Ta_peaks.narrowPeak.bed  
+-q /workdir/nc499/quirze/42_TE_defrag_Rt_clust.bed 
+-s tss -r ../chromInfo.txt 
+-a ../Danio_rerio.GRCz11.98.chr.bed
+
+#try random position-not working
+perl ./TEanalysis/TE-analysis_Shuffle_bed.pl 
+-f Ta_peaks.narrowPeak.bed  
+-q /workdir/nc499/quirze/42_TE_defrag_Rt_clust.bed 
+-s bed 
+-r ../chromInfo.txt -e /workdir/nc499/reference/danRer11.nonalt.fa -d &
