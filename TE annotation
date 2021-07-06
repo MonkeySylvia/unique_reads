@@ -1,0 +1,30 @@
+#Self_expressed TE annotation from latest Quirzes gtf file
+#danRer11.TEtrans_uID.subClass.wredundant.annot_categ.PCg.dfrag.c2.Rt.cluster.gtf
+
+grep 'Self_expressed' danRer11.TEtrans_uID.subClass.wredundant.annot_categ.PCg.dfrag.c2.Rt.cluster.gtf | wc
+2813409
+
+#create a file only contains Self_Expressed TEs (2813409 lines)
+grep 'Self_expressed' danRer11.TEtrans_uID.subClass.wredundant.annot_categ.PCg.dfrag.c2.Rt.cluster.gtf
+> danRer11.TEtrans_uID.subClass_SelfE.0706.gtf
+
+#combine with my old annotation
+#make the format is readable for redFLAT
+sed 's/$/;/' danRer11.TEtrans_uID.subClass_SelfE.0706.gtf > danRer11.TEtrans_uID.subClass_SelfE.0706.2.gtf
+awk '{print $9,$10,$11,$12}' danRer11.TEtrans_uID.subClass_SelfE.0706.2.gtf | sed 's/gene_id/gene_name/' | sed 's/transcript_id/transcript_name/' > TE_name_temp
+paste -d'\ ' danRer11.TEtrans_uID.subClass_SelfE.0706.2.gtf TE_name_temp > danRer11.TEtrans_uID.subClass_SelfE.genename.0706.gtf
+rm TE_name_temp
+rm danRer11.TEtrans_uID.subClass_SelfE.0706.2.gtf
+
+#change TE name to individual TE
+awk '{print $1,$2,$3,$4,$5,$6,$7,$8,$9" "$12" "$11" "$12" "$13" "$14" "$15" "$16" "$17" "$18" "$55" "$12" "$57" "$58}' OFS='\t'  danRer11.TEtrans_uID.subClass_SelfE.genename.0706.gtf 
+> danRer11.TEtrans_uID.subClass_SelfE.indTE.0706.gtf
+
+
+#combine TE and gene 
+cat /workdir/nc499/reference/dr11_ref/Danio_rerio.GRCz11.intactgenename.gtf danRer11.TEtrans_uID.subClass_SelfE.indTE.0706.gtf | sort -k1,1 -k2,2n > danRer11.gene.TESelfE_0706.gtf
+
+#this is the final file
+sed -i 's/chrMT/chrM/g' danRer11.gene.TESelfE_0706.gtf
+
+rm danRer11.TEtrans_uID.subClass_SelfE.indTE.0706.gtf
