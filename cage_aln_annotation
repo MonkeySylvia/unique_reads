@@ -22,6 +22,7 @@ for prefix in `cat sample.txt`; do
   --outSAMtype BAM Unsorted \
   --outFilterMultimapNmax 1 \
   --alignIntronMax 1000000 \
+  --quantMode TranscriptomeSAM \
   --outFileNamePrefix ./${prefix}_
 
 done
