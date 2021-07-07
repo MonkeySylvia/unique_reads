@@ -1,3 +1,11 @@
+#make the annotation file, combining quirzes loci and ensemble 98 gene annotation
+
+cat /workdir/nc499/reference/dr11_ref/Danio_rerio.GRCz11.intactgenename.gtf \
+/workdir/nc499/quirze/danRer11.TEtrans_uID.subClass.wredundant.annot_categ.PCg.dfrag.c2.Rt.cluster.gtf \
+| sort -k1,1 -k2,2n > danRer11.gene.allTE_070721.gtf
+
+
+
 #align reads to refernce genomes
 
 #!/usr/bin/env bash
@@ -10,6 +18,7 @@ for prefix in `cat sample.txt`; do
   --readFilesIn ./${prefix}_1.fastq.gz ./${prefix}_2.fastq.gz \
   --readFilesCommand gunzip -c \
   --runThreadN 10 \
+  --sjdbGTFfile /workdir/nc499/reference/dr11_ref/danRer11.gene.allTE_070721.gtf \
   --outSAMtype BAM Unsorted \
   --outFilterMultimapNmax 1 \
   --alignIntronMax 1000000 \
