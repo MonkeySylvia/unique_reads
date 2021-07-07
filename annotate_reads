@@ -1,0 +1,3 @@
+#annotate reads
+#sam to bam
+for sample in `cat samples.txt`; do samtools view -Sb $sample > $sample.bam;done &
