@@ -35,6 +35,7 @@ grep -w -f 42_TE.txt danRer11_TE_defrag_Rt_clust.gtf > 42_TE_defrag_Rt_clust.gtf
 bedtools intersect -a <(sort -k1,1 -k2,2n Ta_peaks.narrowPeak) -b <(sort -k1,1 -k2,2n /workdir/nc499/quirze/42_TE_defrag_Rt_clust.gtf) -wb > Ta_42_peaks.gtf
 
 #how many peaks?
+#some TEs are incorrectly used from their internal regions rather than LTR. beaware.
 cut -f19 Ta_42_peaks.gtf | sed 's/;/\t/' | cut -f1 | sort | uniq -c | sort -k1,1n
 1 gene_id "L1-51_DR"
       2 gene_id "ERV1-3C_DR-LTR"
