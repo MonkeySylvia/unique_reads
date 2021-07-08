@@ -26,3 +26,16 @@ cat /workdir/nc499/reference/dr11_ref/Danio_rerio.GRCz11.intactgenename.gtf danR
 
 ##final file
 sed -i 's/chrMT/chrM/g' danRer11.gene.nooverlapTE_0708.gtf
+
+#make a refFLAT
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/ConvertToRefFlat \
+-m 64g \
+ANNOTATIONS_FILE= danRer11.gene.nooverlapTE_0708.gtf \
+SEQUENCE_DICTIONARY= /workdir/nc499/reference/danRer11.nonalt.dic \
+OUTPUT= danRer11.gene.nooverlapTE_0708.refFlat
+
+mv danRer11.gene.nooverlapTE_0708.refFlat /workdir/nc499/reference/dr11_ref/
+
+
+
+
