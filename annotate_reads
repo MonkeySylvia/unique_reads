@@ -1,3 +1,20 @@
 #annotate reads
 #sam to bam
 for sample in `cat samples.txt`; do samtools view -Sb $sample > $sample.bam;done &
+
+#remove overlapping transcripts and 3'UTR
+
+bedtools intersect -v -a <(sort -k1,1 -k2,2n danRer11.TEtrans_uID.subClass_SelfE.indTE.0706.gtf) -b <(sort -k1,1 -k2,2n /workdir/nc499/reference/dr11_ref/Danio_rerio.GRCz11.intactgenename.gtf) \
+> danRer11.TEtrans_uID.subClass_SelfE.indTE.nogenes.0708.gtf
+
+#sanity check
+bedtools intersect -a <(sort -k1,1 -k2,2n danRer11.TEtrans_uID.subClass_SelfE.indTE.nogenes.0708.gtf) -b <(sort -k1,1 -k2,2n /workdir/nc499/reference/dr11_ref/Danio_rerio.GRCz11.intactgenename.gtf) | wc
+0
+bedtools intersect -a <(sort -k1,1 -k2,2n /workdir/nc499/reference/dr11_ref/Danio_rerio.GRCz11.intactgenename.gtf) -b <(sort -k1,1 -k2,2n danRer11.TEtrans_uID.subClass_SelfE.indTE.nogenes.0708.gtf) | wc
+
+wc danRer11.TEtrans_uID.subClass_SelfE.indTE.nogenes.0708.gtf danRer11.TEtrans_uID.subClass_SelfE.indTE.0706.gtf
+
+1510780   33237160  409020154 danRer11.TEtrans_uID.subClass_SelfE.indTE.nogenes.0708.gtf
+2813409   61894998  761982914 danRer11.TEtrans_uID.subClass_SelfE.indTE.0706.gtf
+
+remove 46% TEs
