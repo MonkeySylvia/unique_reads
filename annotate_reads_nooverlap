@@ -3,7 +3,7 @@
 for sample in `cat samples.txt`; do samtools view -Sb $sample > $sample.bam;done &
 
 #create a refernce annotation file first
-#remove overlapping transcripts 
+#remove overlapping transcripts --this is too stringent, use other criteria later
 
 bedtools intersect -v -a <(sort -k1,1 -k2,2n danRer11.TEtrans_uID.subClass_SelfE.indTE.0706.gtf) -b <(sort -k1,1 -k2,2n /workdir/nc499/reference/dr11_ref/Danio_rerio.GRCz11.intactgenename.gtf) \
 > danRer11.TEtrans_uID.subClass_SelfE.indTE.nogenes.0708.gtf
@@ -49,5 +49,9 @@ ANNOTATIONS_FILE=/workdir/nc499/reference/dr11_ref/danRer11.gene.nooverlapTE_070
 done & 
 
 
+#############################################################################################
+7/8, use exon instead
 
-
+awk -F'\t' 'BEGIN {OFS = FS}{if ($3="exon") print $0}' /workdir/nc499/reference/dr11_ref/Danio_rerio.GRCz11.intactgenename.gtf > exon.gtf
+grep 'utr' /workdir/nc499/reference/dr11_ref/Danio_rerio.GRCz11.intactgenename.gtf > utr.gtf
+bedtools intersect -a <(sort -k1,1 -k2,2n utr.gtf) -b <(sort -k1,1 -k2,2n exon.gtf) | wc
