@@ -2,7 +2,8 @@
 #sam to bam
 for sample in `cat samples.txt`; do samtools view -Sb $sample > $sample.bam;done &
 
-#remove overlapping transcripts and 3'UTR
+#create a refernce annotation file first
+#remove overlapping transcripts 
 
 bedtools intersect -v -a <(sort -k1,1 -k2,2n danRer11.TEtrans_uID.subClass_SelfE.indTE.0706.gtf) -b <(sort -k1,1 -k2,2n /workdir/nc499/reference/dr11_ref/Danio_rerio.GRCz11.intactgenename.gtf) \
 > danRer11.TEtrans_uID.subClass_SelfE.indTE.nogenes.0708.gtf
@@ -35,6 +36,17 @@ SEQUENCE_DICTIONARY= /workdir/nc499/reference/danRer11.nonalt.dic \
 OUTPUT= danRer11.gene.nooverlapTE_0708.refFlat
 
 mv danRer11.gene.nooverlapTE_0708.refFlat /workdir/nc499/reference/dr11_ref/
+
+#annotate/tag reads to new nooverlap annotation
+#/workdir/nc499/raw/XStag
+
+for sample in `cat samples.txt`; do 
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/TagReadWithGeneFunction \
+-m 120g \
+INPUT=$sample \
+OUTPUT=$sample.realigned.genenooverlapTE.070821.bam \
+ANNOTATIONS_FILE=/workdir/nc499/reference/dr11_ref/danRer11.gene.nooverlapTE_0708.refFlat; 
+done & 
 
 
 
