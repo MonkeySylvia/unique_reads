@@ -54,4 +54,29 @@ done &
 
 awk -F'\t' 'BEGIN {OFS = FS}{if ($3="exon") print $0}' /workdir/nc499/reference/dr11_ref/Danio_rerio.GRCz11.intactgenename.gtf > exon.gtf
 grep 'utr' /workdir/nc499/reference/dr11_ref/Danio_rerio.GRCz11.intactgenename.gtf > utr.gtf
-bedtools intersect -a <(sort -k1,1 -k2,2n utr.gtf) -b <(sort -k1,1 -k2,2n exon.gtf) | wc
+
+cat exon.gtf utr.gtf > exon.utr.gtf
+rm exon.gtf utr.gtf
+
+bedtools intersect -v -a <(sort -k1,1 -k2,2n /workdir/nc499/quirze/danRer11.TEtrans_uID.subClass_SelfE.indTE.0706.gtf) \
+-b <(sort -k1,1 -k2,2n exon.gtf) \
+> danRer11.TEtrans_uID.subClass_SelfE.indTE.noexonutr.0708.gtf
+
+#no good, same as all overlap
+wc danRer11.TEtrans_uID.subClass_SelfE.indTE.noexonutr.0708.gtf /workdir/nc499/quirze/danRer11.TEtrans_uID.subClass_SelfE.indTE.0706.gtf
+1510780/ 2813409
+
+##final file
+#sed -i 's/chrMT/chrM/g' danRer11.TEtrans_uID.subClass_SelfE.indTE.noexonutr.0708.gtf
+
+#make a refFLAT
+#/workdir/nc499/tools/Drop-seq_tools-2.3.0/ConvertToRefFlat \
+-m 64g \
+ANNOTATIONS_FILE= danRer11.TEtrans_uID.subClass_SelfE.indTE.noexonutr.0708.gtf \
+SEQUENCE_DICTIONARY= /workdir/nc499/reference/danRer11.nonalt.dic \
+OUTPUT= danRer11.TEtrans_uID.subClass_SelfE.indTE.noexonutr.0708.refFlat
+
+mv 
+
+
+
