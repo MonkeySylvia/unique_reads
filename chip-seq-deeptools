@@ -30,9 +30,12 @@ bamCompare -b1 sort_nanog_Aligned.out.bam \
 -p 6 2> nanog_bamCompare.log &
 
 # create a matrix for plots
+#convert to bed
+convert2bed --input=gtf  <ERV2.all.gtf> ERV2.all.bed
+
 computeMatrix reference-point --referencePoint TSS \
 -b 1000 -a 1000 \
--R ./ind_TEs/ERV2.all.gtf \
+-R ./ind_TEs/ERV2.all.bed \
 -S nanog_bgNorm.bw \
 --skipZeros \
 -o matrix.nanog.bw.ERV2.gz \
