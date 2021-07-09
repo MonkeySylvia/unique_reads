@@ -86,5 +86,13 @@ OUTPUT= danRer11.gene.noexonTESelfE_0709.refFlat
 
 mv danRer11.gene.noexonTESelfE_0709.refFlat /workdir/nc499/reference/dr11_ref/
 
+##################################################################################
 
-
+#tag reads for gene and TE names
+for sample in `cat samples.txt`; do 
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/TagReadWithGeneFunction \
+-m 120g \
+INPUT=$sample \
+OUTPUT=$sample.genenoexonTE.070921.bam \
+ANNOTATIONS_FILE=/workdir/nc499/reference/dr11_ref/danRer11.gene.noexonTESelfE_0709.refFlat; 
+done & 
