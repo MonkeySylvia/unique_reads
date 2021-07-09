@@ -17,3 +17,22 @@ OUTPUT=$sample.realigned.geneTEbarcoded.070821.bam \
 ANNOTATIONS_FILE=/workdir/nc499/reference/dr11_ref/danRer11.gene.TESelfE_0706.refFlat; 
 done & 
 
+#remove name (dup) for TEs, in order to combine them into one single family
+#for loop
+
+#replace.sam.sh
+#! /bin/bash/env
+for sample in `cat sample.txt`; 
+do samtools view -h $sample.realigned.geneTEbarcoded.070821.bam | sed 's/_dup[0-9]*//g' | samtools view -Sb - > $sample.family.bam;
+done
+
+
+
+
+
+
+
+
+
+
+
