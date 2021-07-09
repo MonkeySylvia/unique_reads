@@ -32,16 +32,16 @@ bamCompare -b1 sort_nanog_Aligned.out.bam \
 # create a matrix for plots
 computeMatrix reference-point --referencePoint TSS \
 -b 1000 -a 1000 \
--R ~/chipseq/results/visualization/chr12_genes.bed \
--S /n/groups/hbctraining/chip-seq/full-dataset/bigWig/Encode_Nanog*.bw \
+-R ./ind_TEs/ERV2.all.gtf \
+-S nanog_bgNorm.bw \
 --skipZeros \
--o ~/chipseq/results/visualization/matrixNanog_TSS_chr12.gz \
+-o matrix.nanog.bw.ERV2.gz \
 -p 6 \
---outFileSortedRegions ~/chipseq/results/visualization/regions_TSS_chr12.bed
+--outFileSortedRegions region_nanog.bw.ERV2.bed &
 
 
 #plots 
-plotHeatmap -m visualization/matrixPou5f1_TSS_chr12.gz \
--out visualization/figures/TSS_Pou5f1_profile-heatmap.png \
+plotHeatmap -m matrix.nanog.bw.ERV2.gz \
+-out whatever.png \
 --colorMap RdBu \
 --zMin -2 --zMax 2  
