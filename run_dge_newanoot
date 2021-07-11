@@ -95,3 +95,52 @@ MIN_NUM_GENES_PER_CELL=500 MIN_NUM_READS_PER_CELL=1000 USE_STRAND_INFO=false STR
 I=ZF90-DS4.realigned.barcoded.bam.family.bam O= ZF90-DS4.dge.newannot.txt.gz \
 SUMMARY=ZF90-DS4.newannot.summary.txt TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 \
 MIN_NUM_GENES_PER_CELL=500 MIN_NUM_READS_PER_CELL=1000 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+#! /bin/bash
+
+#ZFB
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=ZFB-DS2.realigned.barcoded.bam.family.bam O= ZFB-DS2.dge.newannot.txt.gz SUMMARY=ZFB-DS2.newannot.summary.txt \
+TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 MIN_NUM_GENES_PER_CELL=500 MIN_NUM_READS_PER_CELL=1000 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE 
+
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=ZFB-DS2b.realigned.barcoded.bam.family.bam O= ZFB-DS2b.dge.newannot.txt.gz SUMMARY=ZFB-DS2b.newannot.summary.txt \
+TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 MIN_NUM_GENES_PER_CELL=500 MIN_NUM_READS_PER_CELL=1000 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=ZFB-DS3.realigned.barcoded.bam.family.bam O= ZFB-DS3.dge.newannot.txt.gz SUMMARY=ZFB-DS3.newannot.summary.txt \
+TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 MIN_NUM_GENES_PER_CELL=500 MIN_NUM_READS_PER_CELL=1000 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=ZFB-DS4.realigned.barcoded.bam.family.bam O= ZFB-DS4.dge.newannot.txt.gz SUMMARY=ZFB-DS4.newannot.summary.txt \
+TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 MIN_NUM_GENES_PER_CELL=500 MIN_NUM_READS_PER_CELL=1000 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+#ZFDOME
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=ZFDOME-DS5.realigned.barcoded.bam.family.bam O= ZFDOME-DS5.dge.newannot.txt.gz SUMMARY=ZFDOME-DS5.newannot.summary.txt \
+TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 MIN_NUM_GENES_PER_CELL=800 MIN_NUM_READS_PER_CELL=2000 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+#ZFHIGH
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=ZFHIGH-DS5.realigned.barcoded.bam.family.bam O= ZFHIGH-DS5.dge.newannot.txt.gz SUMMARY=ZFHIGH-DS5.newannot.summary.txt \
+TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 MIN_NUM_GENES_PER_CELL=1000 MIN_NUM_READS_PER_CELL=1500 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=ZFHIGH-DS5b.realigned.barcoded.bam.family.bam O= ZFHIGH-DS5b.dge.newannot.txt.gz SUMMARY=ZFHIGH-DS5b.newannot.summary.txt \
+TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 MIN_NUM_GENES_PER_CELL=1000 MIN_NUM_READS_PER_CELL=1500 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+#ZFOBLONG
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=ZFOBLONG-DS5.realigned.barcoded.bam.family.bam O= ZFOBLONG-DS5.dge.newannot.txt.gz SUMMARY=ZFOBLONG-DS5.newannot.summary.txt \
+TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 MIN_NUM_GENES_PER_CELL=625 MIN_NUM_READS_PER_CELL=1500 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=ZFOBLONG-DS5b.realigned.barcoded.bam.family.bam O= ZFOBLONG-DS5b.dge.newannot.txt.gz SUMMARY=ZFOBLONG-DS5b.newannot.summary.txt \
+TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 MIN_NUM_GENES_PER_CELL=625 MIN_NUM_READS_PER_CELL=1500 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+#ZFS
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=ZFS-DS5.realigned.barcoded.bam.family.bam O= ZFS-DS5.dge.newannot.txt.gz SUMMARY=ZFS-DS5.newannot.summary.txt \
+TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 MIN_NUM_GENES_PER_CELL=600 MIN_NUM_READS_PER_CELL=1000 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+
