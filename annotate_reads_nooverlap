@@ -104,3 +104,154 @@ done &
 for sample in `ls uniq*genenoexonTE.070921.bam`; 
 do samtools view -h $sample | sed 's/_dup[0-9]*//g' | samtools view -Sb - > $sample.XS.family.bam;
 done
+
+###############
+#! /bin/bash
+#uniq_ZF30  uniq_ZF30-DS5b.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZF30-DS5.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZF30-DS5.dge.XS.txt.gz \
+SUMMARY=uniq_ZF30-DS5.XS.summary.txt TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 \
+MIN_NUM_GENES_PER_CELL=625 MIN_NUM_READS_PER_CELL=1000 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZF30-DS5b.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZF30-DS5b.dge.XS.txt.gz \
+SUMMARY=uniq_ZF30-DS5b.XS.summary.txt TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 \
+MIN_NUM_GENES_PER_CELL=625 MIN_NUM_READS_PER_CELL=1000 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+#uniq_ZF3S
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZF3S-DS5.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZF3S-DS5.dge.XS.txt.gz \
+SUMMARY=uniq_ZF3S-DS5.XS.summary.txt TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 \
+MIN_NUM_GENES_PER_CELL=500 MIN_NUM_READS_PER_CELL=1000 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+#uniq_ZF50
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZF50-DS2.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZF50-DS2.dge.XS.txt.gz \
+SUMMARY=uniq_ZF50-DS2.XS.summary.txt TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 \
+MIN_NUM_GENES_PER_CELL=600 MIN_NUM_READS_PER_CELL=1500 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZF50-DS3.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZF50-DS3.dge.XS.txt.gz \
+SUMMARY=uniq_ZF50-DS3.summary.XS.txt TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 \
+MIN_NUM_GENES_PER_CELL=600 MIN_NUM_READS_PER_CELL=1500 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZF50-DS4.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZF50-DS4.dge.XS.txt.gz \
+SUMMARY=uniq_ZF50-DS4.XS.summary.txt TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 \
+MIN_NUM_GENES_PER_CELL=600 MIN_NUM_READS_PER_CELL=1500 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZF50-DS4b.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZF50-DS4b.dge.XS.txt.gz \
+SUMMARY=uniq_ZF50-DS4b.XS.summary.txt TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 \
+MIN_NUM_GENES_PER_CELL=600 MIN_NUM_READS_PER_CELL=1500 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+#uniq_ZF60
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZF60-DS2.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZF60-DS2.dge.XS.txt.gz \
+SUMMARY=uniq_ZF60-DS2.XS.summary.txt TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 \
+MIN_NUM_GENES_PER_CELL=600 MIN_NUM_READS_PER_CELL=1500 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZF60-DS3.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZF60-DS3.dge.XS.txt.gz \
+SUMMARY=uniq_ZF60-DS3.XS.summary.txt TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 \
+MIN_NUM_GENES_PER_CELL=600 MIN_NUM_READS_PER_CELL=1500 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZF60-DS4.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZF60-DS4.dge.XS.txt.gz \
+SUMMARY=uniq_ZF60-DS4.XS.summary.txt TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 \
+MIN_NUM_GENES_PER_CELL=600 MIN_NUM_READS_PER_CELL=1500 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+#uniq_ZF6S
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZF6S-DS5.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZF6S-DS5.dge.XS.txt.gz \
+SUMMARY=uniq_ZF6S-DS5.summary.XS.txt TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 \
+MIN_NUM_GENES_PER_CELL=500 MIN_NUM_READS_PER_CELL=1000 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZF6S-DS5b.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZF6S-DS5b.dge.XS.txt.gz \
+SUMMARY=uniq_ZF6S-DS5b.XS.summary.txt TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 \
+MIN_NUM_GENES_PER_CELL=500 MIN_NUM_READS_PER_CELL=1000 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+#uniq_ZF75
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZF75-DS2.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZF75-DS2.dge.XS.txt.gz \
+SUMMARY=uniq_ZF75-DS2.XS.summary.txt TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 \
+MIN_NUM_GENES_PER_CELL=600 MIN_NUM_READS_PER_CELL=1400 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZF75-DS3.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZF75-DS3.dge.XS.txt.gz \
+SUMMARY=uniq_ZF75-DS3.XS.summary.txt TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 \
+MIN_NUM_GENES_PER_CELL=600 MIN_NUM_READS_PER_CELL=1400 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZF75-DS4.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZF75-DS4.dge.XS.txt.gz \
+SUMMARY=uniq_ZF75-DS4.XS.summary.txt TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 \
+MIN_NUM_GENES_PER_CELL=600 MIN_NUM_READS_PER_CELL=1400 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+#uniq_ZF90
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZF90-DS2.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZF90-DS2.dge.XS.txt.gz \
+SUMMARY=uniq_ZF90-DS2.XS.summary.txt TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 \
+MIN_NUM_GENES_PER_CELL=500 MIN_NUM_READS_PER_CELL=1000 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZF90-DS3.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZF90-DS3.dge.XS.txt.gz \
+SUMMARY=uniq_ZF90-DS3.XS.summary.txt TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 \
+MIN_NUM_GENES_PER_CELL=500 MIN_NUM_READS_PER_CELL=1000 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZF90-DS4.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZF90-DS4.dge.XS.txt.gz \
+SUMMARY=uniq_ZF90-DS4.XS.summary.txt TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 \
+MIN_NUM_GENES_PER_CELL=500 MIN_NUM_READS_PER_CELL=1000 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+
+#! /bin/bash
+
+#uniq_ZFB  
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZFB-DS2.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZFB-DS2.dge.XS.txt.gz SUMMARY=uniq_ZFB-DS2.XS.summary.txt \
+TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 MIN_NUM_GENES_PER_CELL=500 MIN_NUM_READS_PER_CELL=1000 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE 
+
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZFB-DS2b.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZFB-DS2b.dge.XS.txt.gz SUMMARY=uniq_ZFB-DS2b.XS.summary.txt \
+TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 MIN_NUM_GENES_PER_CELL=500 MIN_NUM_READS_PER_CELL=1000 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZFB-DS3.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZFB-DS3.dge.XS.txt.gz SUMMARY=uniq_ZFB-DS3.XS.summary.txt \
+TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 MIN_NUM_GENES_PER_CELL=500 MIN_NUM_READS_PER_CELL=1000 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZFB-DS4.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZFB-DS4.dge.XS.txt.gz SUMMARY=uniq_ZFB-DS4.XS.summary.txt \
+TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 MIN_NUM_GENES_PER_CELL=500 MIN_NUM_READS_PER_CELL=1000 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+#uniq_ZFDOME
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZFDOME-DS5.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZFDOME-DS5.dge.XS.txt.gz SUMMARY=uniq_ZFDOME-DS5.XS.summary.txt \
+TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 MIN_NUM_GENES_PER_CELL=800 MIN_NUM_READS_PER_CELL=2000 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+#uniq_ZFHIGH
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZFHIGH-DS5.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZFHIGH-DS5.dge.XS.txt.gz SUMMARY=uniq_ZFHIGH-DS5.XS.summary.txt \
+TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 MIN_NUM_GENES_PER_CELL=1000 MIN_NUM_READS_PER_CELL=1500 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZFHIGH-DS5b.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZFHIGH-DS5b.dge.XS.txt.gz SUMMARY=uniq_ZFHIGH-DS5b.XS.summary.txt \
+TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 MIN_NUM_GENES_PER_CELL=1000 MIN_NUM_READS_PER_CELL=1500 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+#uniq_ZFOBLONG
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZFOBLONG-DS5.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZFOBLONG-DS5.dge.XS.txt.gz SUMMARY=uniq_ZFOBLONG-DS5.XS.summary.txt \
+TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 MIN_NUM_GENES_PER_CELL=625 MIN_NUM_READS_PER_CELL=1500 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZFOBLONG-DS5b.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZFOBLONG-DS5b.dge.XS.txt.gz SUMMARY=uniq_ZFOBLONG-DS5b.XS.summary.txt \
+TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 MIN_NUM_GENES_PER_CELL=625 MIN_NUM_READS_PER_CELL=1500 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+#uniq_ZFS
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/DigitalExpression -m 120g \
+I=uniq_ZFS-DS5.realigned.barcoded.XS.bam.sam.bam.genenoexonTE.070921.bam.XS.family.bam O=uniq_ZFS-DS5.dge.XS.txt.gz SUMMARY=uniq_ZFS-DS5.XS.summary.txt \
+TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 MIN_NUM_GENES_PER_CELL=600 MIN_NUM_READS_PER_CELL=1000 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
+
+
+
+
