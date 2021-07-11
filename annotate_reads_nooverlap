@@ -96,3 +96,11 @@ INPUT=$sample \
 OUTPUT=$sample.genenoexonTE.070921.bam \
 ANNOTATIONS_FILE=/workdir/nc499/reference/dr11_ref/danRer11.gene.noexonTESelfE_0709.refFlat; 
 done & 
+
+#########
+
+#replace.sam.sh
+#! /bin/bash/env
+for sample in `ls uniq*genenoexonTE.070921.bam`; 
+do samtools view -h $sample | sed 's/_dup[0-9]*//g' | samtools view -Sb - > $sample.XS.family.bam;
+done
