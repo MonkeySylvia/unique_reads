@@ -143,4 +143,35 @@ TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 MIN_NUM_GENES_PER_CELL=625 MIN_NUM_READ
 I=ZFS-DS5.realigned.barcoded.bam.family.bam O= ZFS-DS5.dge.newannot.txt.gz SUMMARY=ZFS-DS5.newannot.summary.txt \
 TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 MIN_NUM_GENES_PER_CELL=600 MIN_NUM_READS_PER_CELL=1000 USE_STRAND_INFO=false STRAND_STRATEGY=SENSE
 
+###################################################
+#create an informative header
+#! /bin/bash
+sed -i -e '1s/\t/\tZF30-DS5_/g'	ZF30-DS5.dge.newannot.txt 
+sed -i -e '1s/\t/\tZF30-DS5b_/g'    ZF30-DS5b.dge.newannot.txt
+sed -i -e '1s/\t/\tZF3S-DS5_/g'	ZF3S-DS5.dge.newannot.txt 
+sed -i -e '1s/\t/\tZF50-DS2_/g'	ZF50-DS2.dge.newannot.txt 
+sed -i -e '1s/\t/\tZF50-DS3_/g'	ZF50-DS3.dge.newannot.txt 
+sed -i -e '1s/\t/\tZF50-DS4_/g'	ZF50-DS4.dge.newannot.txt 
+sed -i -e '1s/\t/\tZF50-DS4b_/g'	ZF50-DS4b.dge.newannot.txt
+sed -i -e '1s/\t/\tZF60-DS2_/g'	ZF60-DS2.dge.newannot.txt 
+sed -i -e '1s/\t/\tZF60-DS3_/g'	ZF60-DS3.dge.newannot.txt 
+sed -i -e '1s/\t/\tZF60-DS4_/g'	ZF60-DS4.dge.newannot.txt 
+sed -i -e '1s/\t/\tZF6S-DS5_/g'	ZF6S-DS5.dge.newannot.txt 
+sed -i -e '1s/\t/\tZF6S-DS5b_/g'	ZF6S-DS5b.dge.newannot.txt
+sed -i -e '1s/\t/\tZF75-DS2_/g'	ZF75-DS2.dge.newannot.txt 
+sed -i -e '1s/\t/\tZF75-DS3_/g'	ZF75-DS3.dge.newannot.txt 
+sed -i -e '1s/\t/\tZF75-DS4_/g'	ZF75-DS4.dge.newannot.txt 
+sed -i -e '1s/\t/\tZF90-DS2_/g'	ZF90-DS2.dge.newannot.txt 
+sed -i -e '1s/\t/\tZF90-DS3_/g'	ZF90-DS3.dge.newannot.txt 
+sed -i -e '1s/\t/\tZF90-DS4_/g'	ZF90-DS4.dge.newannot.txt 
+sed -i -e '1s/\t/\tZFB-DS2_/g'	ZFB-DS2.dge.newannot.txt
+sed -i -e '1s/\t/\tZFB-DS2b_/g'	ZFB-DS2b.dge.newannot.txt
+sed -i -e '1s/\t/\tZFB-DS3_/g'	ZFB-DS3.dge.newannot.txt
+sed -i -e '1s/\t/\tZFB-DS4_/g'	ZFB-DS4.dge.newannot.txt
+sed -i -e '1s/\t/\tZFDOME-DS5_/g'	ZFDOME-DS5.dge.newannot.txt
+sed -i -e '1s/\t/\tZFHIGH-DS5_/g'	ZFHIGH-DS5.dge.newannot.txt
+sed -i -e '1s/\t/\tZFHIGH-DS5b_/g'	ZFHIGH-DS5b.dge.newannot.txt
+sed -i -e '1s/\t/\tZFOBLONG-DS5_/g'	ZFOBLONG-DS5.dge.newannot.txt
+sed -i -e '1s/\t/\tZFOBLONG-DS5b_/g'	ZFOBLONG-DS5b.dge.newannot.txt
+sed -i -e '1s/\t/\tZFS-DS5_/g'	ZFS-DS5.dge.newannot.txt
 
