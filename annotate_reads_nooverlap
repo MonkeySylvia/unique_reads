@@ -254,4 +254,33 @@ TMP_DIR=/workdir/nc499/temp/ READ_MQ= -1 MIN_NUM_GENES_PER_CELL=600 MIN_NUM_READ
 
 
 
+#! /bin/bash
+sed -i -e '1s/\t/\tZF30-DS5_/g'	uniq_ZF30-DS5.dge.XS.txt 
+sed -i -e '1s/\t/\tZF30-DS5b_/g'    uniq_ZF30-DS5b.dge.XS.txt
+sed -i -e '1s/\t/\tZF3S-DS5_/g'	uniq_ZF3S-DS5.dge.XS.txt 
+sed -i -e '1s/\t/\tZF50-DS2_/g'	uniq_ZF50-DS2.dge.XS.txt 
+sed -i -e '1s/\t/\tZF50-DS3_/g'	uniq_ZF50-DS3.dge.XS.txt 
+sed -i -e '1s/\t/\tZF50-DS4_/g'	uniq_ZF50-DS4.dge.XS.txt 
+sed -i -e '1s/\t/\tZF50-DS4b_/g'	uniq_ZF50-DS4b.dge.XS.txt
+sed -i -e '1s/\t/\tZF60-DS2_/g'	uniq_ZF60-DS2.dge.XS.txt 
+sed -i -e '1s/\t/\tZF60-DS3_/g'	uniq_ZF60-DS3.dge.XS.txt 
+sed -i -e '1s/\t/\tZF60-DS4_/g'	uniq_ZF60-DS4.dge.XS.txt 
+sed -i -e '1s/\t/\tZF6S-DS5_/g'	uniq_ZF6S-DS5.dge.XS.txt 
+sed -i -e '1s/\t/\tZF6S-DS5b_/g'	uniq_ZF6S-DS5b.dge.XS.txt
+sed -i -e '1s/\t/\tZF75-DS2_/g'	uniq_ZF75-DS2.dge.XS.txt 
+sed -i -e '1s/\t/\tZF75-DS3_/g'	uniq_ZF75-DS3.dge.XS.txt 
+sed -i -e '1s/\t/\tZF75-DS4_/g'	uniq_ZF75-DS4.dge.XS.txt 
+sed -i -e '1s/\t/\tZF90-DS2_/g'	uniq_ZF90-DS2.dge.XS.txt 
+sed -i -e '1s/\t/\tZF90-DS3_/g'	uniq_ZF90-DS3.dge.XS.txt 
+sed -i -e '1s/\t/\tZF90-DS4_/g'	uniq_ZF90-DS4.dge.XS.txt 
+sed -i -e '1s/\t/\tZFB-DS2_/g'	uniq_ZFB-DS2.dge.XS.txt
+sed -i -e '1s/\t/\tZFB-DS2b_/g'	uniq_ZFB-DS2b.dge.XS.txt
+sed -i -e '1s/\t/\tZFB-DS3_/g'	uniq_ZFB-DS3.dge.XS.txt
+sed -i -e '1s/\t/\tZFB-DS4_/g'	uniq_ZFB-DS4.dge.XS.txt
+sed -i -e '1s/\t/\tZFDOME-DS5_/g'	uniq_ZFDOME-DS5.dge.XS.txt
+sed -i -e '1s/\t/\tZFHIGH-DS5_/g'	uniq_ZFHIGH-DS5.dge.XS.txt
+sed -i -e '1s/\t/\tZFHIGH-DS5b_/g'	uniq_ZFHIGH-DS5b.dge.XS.txt
+sed -i -e '1s/\t/\tZFOBLONG-DS5_/g'	uniq_ZFOBLONG-DS5.dge.XS.txt
+sed -i -e '1s/\t/\tZFOBLONG-DS5b_/g'	uniq_ZFOBLONG-DS5b.dge.XS.txt
+sed -i -e '1s/\t/\tZFS-DS5_/g'	uniq_ZFS-DS5.dge.XS.txt
 
