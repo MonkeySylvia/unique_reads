@@ -29,6 +29,7 @@ bamCompare -b1 sort_nanog_Aligned.out.bam \
 --centerReads \
 -p 6 2> nanog_bamCompare.log &
 
+#use all ERV2, signal is too diluted (449)
 # create a matrix for plots
 #convert to bed
 convert2bed --input=gtf  <ERV2.all.gtf> ERV2.all.bed
@@ -46,5 +47,27 @@ computeMatrix reference-point --referencePoint TSS \
 #plots 
 plotHeatmap -m matrix.nanog.bw.ERV2.gz \
 -out whatever.png \
+--colorMap RdBu \
+--zMin -2 --zMax 2  
+
+
+#use selfE ERV2
+grep 'gene_id\s\"ERV2_DR-LTR' /workdir/nc499/quirze/danRer11.gene.TESelfE_0706.gtf > ERV2_SelfE.gtf (331)
+#convert to bed
+convert2bed --input=gtf  <ERV2_SelfE.gtf> ERV2_SelfE.bed
+
+computeMatrix reference-point --referencePoint TSS \
+-b 1000 -a 1000 \
+-R ./ind_TEs/ERV2_SelfE.bed \
+-S nanog_bgNorm.bw \
+--skipZeros \
+-o matrix.nanog.bw.ERV2.SelfE.gz \
+-p 6 \
+--outFileSortedRegions region_nanog.bw.ERV2.SelfE.bed &
+
+
+#plots 
+plotHeatmap -m matrix.nanog.bw.ERV2.SelfE.gz \
+-out whatever2.png \
 --colorMap RdBu \
 --zMin -2 --zMax 2  
