@@ -143,3 +143,14 @@ cut -f19 nanog_42_peaks.gtf | sed 's/;/\t/' | cut -f1 | sort | uniq -c | sort -k
      93 gene_id "Harbinger-2_DR"
     113 gene_id "EnSpmN1_DR"
     174 gene_id "EnSpm-N46_DR"
+
+##some overlapped TEs were missing from the "42TE". I used ind. TE instead
+#focus on ERV1-N6
+#grep it from SelfE.gtf
+convert2bed --input=gtf  <ERV1-N6_SelfE.gtf> ERV1-N6_SelfE.bed
+bedtools intersect -a <(sort -k1,1 -k2,2n ../nanog_peaks.narrowPeak) -b <(sort -k1,1 -k2,2n ERV1-N6_SelfE.bed) -wb > ERV1-N6_SelfE.nonag.peaks.bed
+
+bedtools getfasta -fi /workdir/nc499/reference/danRer11.nonalt.fa -bed ERV1-N6_SelfE.bed > ERV1-N6_SelfE.all.fa
+
+bedtools getfasta -fi /workdir/nc499/reference/danRer11.nonalt.fa -bed ERV1-N6_SelfE.nonag.peaks.bed > ERV1-N6_SelfE.nonag.peaks.fa
+
