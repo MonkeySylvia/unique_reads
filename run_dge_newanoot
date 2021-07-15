@@ -176,10 +176,10 @@ sed -i -e '1s/\t/\tZFOBLONG-DS5b_/g'	ZFOBLONG-DS5b.dge.newannot.txt
 sed -i -e '1s/\t/\tZFS-DS5_/g'	ZFS-DS5.dge.newannot.txt
 
 ###################
-Ask Jon to merge the matrix. "filtered_clean_new_annot.txt"
+Ask Jon to merge the matrix. "filtered_clean_new_annot2.txt"
 
-sed -i 's/nan/0.0/g' filtered_clean_new_annot.txt
+sed -i 's/nan/0.0/g' filtered_clean_new_annot2.txt
 
 #create a cell meta
-head -1 filtered_clean_new_annot.txt | sed 's/\t/\n/g' | awk '{print $1,$1}' | sed 's/\./\t/2' | sed 's/_/\t/2' | awk -v OFS='\t' '{print $1,$3}' > cell_meta.txt
+head -1 filtered_clean_new_annot2.txt | sed 's/\t/\n/g' | awk '{print $1,$1}' | sed 's/\./\t/2' | sed 's/_/\t/2' | awk -v OFS='\t' '{print $1,$3}' > cell_meta.txt
 #copy MT genes "MT_genes_0130.txt"
