@@ -1,0 +1,38 @@
+#Goal- create new heatmap/linage-specific TEs based on Quirzes newest annotation
+#contain multiple mapping reads
+
+#annotation- genes and self expressed TEs- /workdir/nc499/reference/dr11_ref/danRer11.gene.TESelfE_0706.refFlat
+#input file- /workdir/nc499/raw/*realigned.barcoded.bam
+
+#dir- /workdir/nc499/raw/new_annot
+ls ../*realigned.barcoded.bam | less > sample.txt
+sed -i 's/\.\.\///' sample.txt
+
+#tag reads for gene and TE names
+for sample in `cat sample.txt`; do 
+/workdir/nc499/tools/Drop-seq_tools-2.3.0/TagReadWithGeneFunction \
+-m 120g \
+INPUT=../$sample \
+OUTPUT=$sample.realigned.geneTEbarcoded.070821.bam \
+ANNOTATIONS_FILE=/workdir/nc499/reference/dr11_ref/danRer11.gene.TESelfE_0706.refFlat; 
+done & 
+
+#remove name (dup) for TEs, in order to combine them into one single family
+#for loop
+
+#replace.sam.sh
+#! /bin/bash/env
+for sample in `cat sample.txt`; 
+do samtools view -h $sample.realigned.geneTEbarcoded.070821.bam | sed 's/_dup[0-9]*//g' | samtools view -Sb - > $sample.family.bam;
+done
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+library(Seurat)
+library(dplyr)
+library(data.table)
+
+
+setwd("/workdir/nc499/raw/new_annot/dge")
+data.orig <- read.csv("ZF30-DS5.dge.newannot.txt", sep = "\t", row.names = 1, header = T )  #substitue the sample name for each sample
+data.obj <- CreateSeuratObject(counts = data.orig, project ="filter")
+data.obj
+data.obj<-subset(data.obj, subset = nFeature_RNA > 625 & nFeature_RNA < 3240)
+data.obj
+data_to_write_out <- as.data.frame(as.matrix(data.obj[["RNA"]]@data))
+fwrite(x = data_to_write_out, sep="\t", row.names = TRUE, file = "ZF30-DS5.dge.newannot.clean.matrix")
+rm(data.orig,data.obj,data_to_write_out)
