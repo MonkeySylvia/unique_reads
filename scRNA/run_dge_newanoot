@@ -182,4 +182,5 @@ sed -i 's/nan/0.0/g' filtered_clean_new_annot2.txt
 
 #create a cell meta
 head -1 filtered_clean_new_annot2.txt | sed 's/\t/\n/g' | awk '{print $1,$1}' | sed 's/\./\t/2' | sed 's/_/\t/2' | awk -v OFS='\t' '{print $1,$3}' > cell_meta.txt
+head -1 filtered_clean_new_annot2.txt | sed 's/\t/\n/g' | awk '{print $1,$1}' | sed 's/\./\t/2' | sed 's/_/\t/2' | awk -v OFS='\t' '{print $1,$2}' > cell_stages.txt
 #copy MT genes "MT_genes_0130.txt"
