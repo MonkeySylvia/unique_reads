@@ -1,0 +1,5 @@
+#create cell meta
+head -1 filtered_clean_xstag.txt | sed 's/\t/\n/g' | awk '{print $1,$1}' | sed 's/\./\t/2' | sed 's/_/\t/2' | awk -v OFS='\t' '{print $1,$3}' > cell_meta_xs.txt
+
+
+
