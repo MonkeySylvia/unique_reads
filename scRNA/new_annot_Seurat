@@ -105,7 +105,7 @@ saveRDS(pbmc.integrated,file="all_dr11_dm143r5.8_batchMT_0724.rds")
 
 #find markers
 pbmc.integrated.markers.10 <- FindAllMarkers(pbmc.integrated, min.pct=0.1, min.diff.pct=0.1, logfc.threshold = 0.25, return.thresh=0.05, only.pos=TRUE) #min.pct is the same from 0.1 to 0.5. add min.diff.pct=0.1
-pbmc.markers.10.2<-pbmc.integrated.markers[which(pbmc.integrated.markers.10[,5]<0.05),]
+pbmc.markers.10.2<-pbmc.integrated.markers.10[which(pbmc.integrated.markers.10[,5]<0.05),]
 
 write.table(pbmc.markers.10.2,file="all_r5.8_dim143_batchcorrectedMT_markers0724_0.1_pos_0.1diff.txt",sep="\t",quote=F,row.names=F)
 
