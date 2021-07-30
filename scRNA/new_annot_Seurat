@@ -104,9 +104,49 @@ saveRDS(pbmc.integrated,file="all_dr11_dm143r5.8_batchMT_0724.rds")
 
 
 #find markers
-pbmc.integrated.markers.10 <- FindAllMarkers(pbmc.integrated, min.pct=0.1, min.diff.pct=0.1, logfc.threshold = 0.25, return.thresh=0.05, only.pos=TRUE) #min.pct is the same from 0.1 to 0.5. add min.diff.pct=0.1
-pbmc.markers.10.2<-pbmc.integrated.markers.10[which(pbmc.integrated.markers.10[,5]<0.05),]
+pbmc.integrated.markers.20 <- FindAllMarkers(pbmc.integrated, min.pct=0.2, min.diff.pct=0.2, logfc.threshold = 0.25, return.thresh=0.05, only.pos=TRUE) #min.pct is the same from 0.1 to 0.5. add min.diff.pct=0.1
+pbmc.markers.20.2<-pbmc.integrated.markers.20[which(pbmc.integrated.markers.20[,5]<0.05),]
 
-write.table(pbmc.markers.10.2,file="all_r5.8_dim143_batchcorrectedMT_markers0724_0.1_pos_0.1diff.txt",sep="\t",quote=F,row.names=F)
+write.table(pbmc.markers.20.2,file="all_r5.8_dim143_batchcorrectedMT_markers0724_0.2_pos_0.2diff.txt",sep="\t",quote=F,row.names=F)
 
-
+grep -v 'ENSDARG' all_r5.8_dim143_batchcorrectedMT_markers0724_0.2_pos_0.2diff.txt | cut -f7 | sort | uniq
+BHIKHARI-3-LTR-DR
+BHIKHARI-I-int
+BHIKHARI-LTR
+CryptonV-3-DR
+DIRS1b-DR
+EnSpm-19-DR
+EnSpm-N17-DR
+EnSpmN1-DR
+EnSpm-N38-DR
+EnSpm-N44-DR
+EnSpm-N46-DR
+ERV1-3C-DR-LTR
+ERV1-3-I-DR
+ERV1-3-LTR-DR
+ERV1-4-DR-I
+ERV1-4-DR-LTR
+ERV1-7-DR-I
+ERV1-DR-LTR
+ERV1-N2-LTR-DR
+ERV1-N6-LTR-DR
+ERV1-N8-I-DR
+ERV1-N8-LTR-DR
+ERV1-N9-I-DR
+ERV1-N9-LTR-DR
+gene
+Gypsy118-LTR-DR
+Gypsy-35-LTR-DR
+Gypsy66-LTR-DR
+hAT-N118-DR
+hAT-N163B-DR
+hAT-N51-DR
+Helitron-1-DR
+KenoDr1
+KenoDr2
+L1-47-DR
+L1-4-DR
+L1-51-DR
+Nimb-11-DR
+Nimb-6-DR
+SINE2-1B-DR
