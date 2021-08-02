@@ -1,0 +1,13 @@
+#create a bw file
+
+export PATH=/programs/deeptools-3.5/bin:$PATH
+
+export PYTHONPATH=/programs/deeptools-3.5/lib64/python3.6/site-packages:/programs/deeptools-3.5/lib/python3.6/site-packages
+
+bamCoverage -b sorted_dome_shel.bam -o sorted_dome_shel.bw -of bigwig \
+--normalizeUsing BPM \
+-p 6 2> sorted_dome_shel_bamCoverage.log &
+
+#compute matrix
+
+self-expressed loci
