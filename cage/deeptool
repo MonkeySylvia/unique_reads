@@ -8,6 +8,24 @@ bamCoverage -b sorted_dome_shel.bam -o sorted_dome_shel.bw -of bigwig \
 --normalizeUsing BPM \
 -p 6 2> sorted_dome_shel_bamCoverage.log &
 
-#compute matrix
+#create TE of interested
+#self expressed one (danRer11.TEtrans_uID.subClass_SelfE.0706.gtf)
+convert2bed --input=gtf <danRer11.TEtrans_uID.subClass_SelfE.0706.gtf> danRer11.TEtrans_uID.subClass_SelfE.0706.bed
 
-self-expressed loci
+#Non self-expressed loci
+grep -v 'Self_expressed' danRer11.TEtrans_uID.subClass.wredundant.annot_categ.PCg.dfrag.c2.Rt.cluster.gtf > danRer11.TEtrans_uID.subClass_not_SelfE_0802.gtf
+
+convert2bed --input=gtf <danRer11.TEtrans_uID.subClass_not_SelfE_0802.gtf> danRer11.TEtrans_uID.subClass_not_SelfE_0802.bed
+
+
+#compute matrix
+computeMatrix reference-point --referencePoint TSS \
+-b 1000 -a 1000 \
+-R /workdir/nc499/quirze/danRer11.TEtrans_uID.subClass_SelfE.0706.bed \
+-S sorted_dome_shel.bw \
+--skipZeros \
+-o matrix.cage.dome.shel.gz \
+--nanAfterEnd \
+-p 6 \
+--outFileSortedRegions region_cage.dome.shel.bed &
+
