@@ -1,17 +1,20 @@
 #devide into stages
 
+#in R
+write.table(as.matrix(GetAssayData(object =pbmc.integrated@assays$RNA, slot = "counts")), 'after_seurat.matrix', sep = '\t', row.names = T, col.names = T, quote = F)
+
 perl -lane '$,="\t";
    $. == 1 and @A = grep $F[$_] =~ /ZFHIGH|ZFOBLONG|ZFDOME|ZF30/, 0..$#F;
    print @F[0,@A];
-' filtered_clean_new_annot2.txt > blastula.matrix
+' after_seurat.matrix > blastula.matrix
 
 perl -lane '$,="\t";
    $. == 1 and @A = grep $F[$_] =~ /ZF50|ZF60|ZFS|ZF75|ZF90|ZFB/, 0..$#F;
    print @F[0,@A];
-' filtered_clean_new_annot2.txt > gastrula.matrix
+' after_seurat.matrix > gastrula.matrix
 
 perl -lane '$,="\t";
    $. == 1 and @A = grep $F[$_] =~ /ZF3S|ZF6S/, 0..$#F;
    print @F[0,@A];
-' filtered_clean_new_annot2.txt > segmentation.matrix
+' after_seurat.matrix > segmentation.matrix
 
