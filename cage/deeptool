@@ -29,3 +29,13 @@ computeMatrix reference-point --referencePoint TSS \
 -p 6 \
 --outFileSortedRegions region_cage.dome.shel.bed &
 
+
+computeMatrix reference-point --referencePoint TSS \
+-b 1000 -a 1000 \
+-R /workdir/nc499/quirze/danRer11.TEtrans_uID.subClass_not_SelfE_0802.bed \
+-S sorted_dome_shel.bw \
+--skipZeros \
+-o matrix.cage.dome.shel.notselfE.gz \
+--nanAfterEnd \
+-p 12 \
+--outFileSortedRegions region_cage.dome.shel.notselfE.bed &
