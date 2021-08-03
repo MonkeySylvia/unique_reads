@@ -39,3 +39,9 @@ computeMatrix reference-point --referencePoint TSS \
 --nanAfterEnd \
 -p 12 \
 --outFileSortedRegions region_cage.dome.shel.notselfE.bed &
+
+#plot
+plotHeatmap -m  \
+-out whatever2.png \
+--colorMap RdBu \
+--zMin -2 --zMax 2 
