@@ -24,10 +24,10 @@ computeMatrix reference-point --referencePoint TSS \
 -R /workdir/nc499/quirze/danRer11.TEtrans_uID.subClass_SelfE.0706.bed \
 -S sorted_dome_shel.bw \
 --skipZeros \
--o matrix.cage.dome.shel.gz \
+-o matrix_cage_dome_shel.gz \
 --nanAfterEnd \
 -p 6 \
---outFileSortedRegions region_cage.dome.shel.bed &
+--outFileSortedRegions region_cage_dome_shel.bed &
 
 
 computeMatrix reference-point --referencePoint TSS \
@@ -35,13 +35,17 @@ computeMatrix reference-point --referencePoint TSS \
 -R /workdir/nc499/quirze/danRer11.TEtrans_uID.subClass_not_SelfE_0802.bed \
 -S sorted_dome_shel.bw \
 --skipZeros \
--o matrix.cage.dome.shel.notselfE.gz \
+-o matrix_cage_dome_shel_notselfE.gz \
 --nanAfterEnd \
--p 12 \
---outFileSortedRegions region_cage.dome.shel.notselfE.bed &
+-p 20 \
+--outFileSortedRegions region_cage_dome_shel_notselfE.bed &
 
 #plot
-plotHeatmap -m  matrix.cage.dome.shel.gz \
+plotHeatmap -m  matrix_cage_dome_shel.gz \
 -out whatever2.png \
 --colorMap RdBu \
 --zMin -2 --zMax 2 
+
+
+
+
