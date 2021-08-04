@@ -25,8 +25,7 @@ computeMatrix reference-point --referencePoint TSS \
 -S sorted_dome_shel.bw \
 --skipZeros \
 -o matrix_cage_dome_shel.gz \
---nanAfterEnd \
--p 6 \
+-p 50 \
 --outFileSortedRegions region_cage_dome_shel.bed &
 
 
