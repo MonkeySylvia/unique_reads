@@ -41,7 +41,7 @@ computeMatrix reference-point --referencePoint TSS \
 --outFileSortedRegions region_cage.dome.shel.notselfE.bed &
 
 #plot
-plotHeatmap -m  \
+plotHeatmap -m  matrix.cage.dome.shel.gz \
 -out whatever2.png \
 --colorMap RdBu \
 --zMin -2 --zMax 2 
