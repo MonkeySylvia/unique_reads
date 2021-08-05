@@ -1,0 +1,11 @@
+cat <(head -1 blastula_r1.2_dm50_batchcorrected_AE_080221.txt) <(grep -f 34_DE_TEs.txt blastula_r1.2_dm50_batchcorrected_AE_080221.txt) > 34_DETEs_at_blastula.txt
+
+cat <(head -1 gastrula_r3_dm90_batchcorrected_AE_080421.txt) <(grep -f 34_DE_TEs.txt gastrula_r3_dm90_batchcorrected_AE_080421.txt) > 34_DETEs_at_gastrula.txt
+
+cat <(head -1 segmentation_r2_dm60_batchcorrected_AE_080421.txt) <(grep -f 34_DE_TEs.txt segmentation_r2_dm60_batchcorrected_AE_080421.txt) > 34_DETEs_at_segmentation.txt
+
+sed -i '1s/\t/\tbla_/g' 34_DETEs_at_blastula.txt
+sed -i '1s/\t/\tgas_/g' 34_DETEs_at_gastrula.txt
+sed -i '1s/\t/\tseg_/g' 34_DETEs_at_segmentation.txt
+
+paste 34_DETEs_at_blastula.txt <(cut -f2- 34_DETEs_at_gastrula.txt) <(cut -f2- 34_DETEs_at_segmentation.txt) | sed 's/\s/\t/g' > 34_DETEs_3stages_AE.txt
