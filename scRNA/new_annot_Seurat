@@ -186,3 +186,10 @@ L1-51-DR
 Nimb-11-DR
 Nimb-6-DR
 SINE2-1B-DR
+
+
+#export count matrix and Umap coordinate
+
+write.table(as.matrix(GetAssayData(object =pbmc.integrated@assays$RNA, slot = "counts")), 'after_seurat.matrix', sep = '\t', row.names = T, col.names = T, quote = F)
+umap = cbind("Barcode" = rownames(Embeddings(object = pbmc.integrated, reduction = "umap")), Embeddings(object = pbmc.integrated, reduction = "umap"))
+write.table(umap, file="export_umap.csv", sep = ",", quote = F, row.names = F, col.names = T)
